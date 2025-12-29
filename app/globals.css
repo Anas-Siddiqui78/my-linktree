@@ -1,26 +1,138 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Background */
+.linktree-bg {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #0d2b45, #020b17);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Container */
+.linktree-container {
+  width: 100%;
+  max-width: 420px;
+  padding: 32px 16px;
+}
+
+/* Card (Linktree feel) */
+.linktree-card {
+  background: linear-gradient(180deg, #061a2d, #020b17);
+  border-radius: 22px;
+  padding: 32px 20px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+}
+
+/* Profile */
+.profile {
+  margin-bottom: 28px;
+}
+
+.profile-img {
+  border-radius: 50%;
+  margin-bottom: 12px;
+}
+
+.profile-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.profile-title {
+  font-size: 14px;
+  color: #b8c1cc;
+  margin-top: 4px;
+}
+
+/* Links */
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Linktree-style OUTLINE buttons */
+.link-btn {
+  background: transparent;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 14px;
+  border-radius: 999px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  transition: transform 0.12s ease, background 0.12s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Desktop hover */
+.link-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Mobile tap (REAL Linktree feel) */
+.link-btn:active {
+  transform: scale(0.96);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Icons */
+.icon {
+  font-size: 18px;
+}
+
+/* Footer (Bottom info like Linktree) */
+.footer {
+  margin-top: 32px;
+  font-size: 12px;
+  color: #9aa6b2;
+  opacity: 0.8;
+  text-align: center;
+}
+
+.footer .brand {
+  margin-top: 8px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* 🔥 Mobile-first tuning (VERY IMPORTANT) */
+@media (max-width: 480px) {
+  .linktree-container {
+    padding: 20px 12px;
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  .linktree-card {
+    padding: 28px 16px;
+    border-radius: 20px;
+  }
+
+  .profile-img {
+    width: 88px;
+    height: 88px;
+  }
+
+  .profile-name {
+    font-size: 18px;
+  }
+
+  .links {
+    gap: 12px;
+  }
+
+  .link-btn {
+    padding: 13px;
+    font-size: 15px;
+  }
 }
