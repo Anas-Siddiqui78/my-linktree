@@ -12,6 +12,8 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  position: relative;
+  overflow: hidden;
 }
 
 /* Container */
@@ -19,15 +21,102 @@
   width: 100%;
   max-width: 420px;
   padding: 32px 16px;
+  position: relative;
 }
 
-/* Card (Linktree feel) */
+/* ===============================
+   3D Glass Card (ENHANCED)
+================================ */
 .linktree-card {
-  background: linear-gradient(180deg, #061a2d, #020b17);
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    rgba(6, 26, 45, 0.9),
+    rgba(2, 11, 23, 0.95)
+  );
   border-radius: 22px;
   padding: 32px 20px;
   text-align: center;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+
+  backdrop-filter: blur(18px);
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.55),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Subtle 3D hover (desktop only) */
+@media (hover: hover) {
+  .linktree-card:hover {
+    transform: translateY(-6px) rotateX(5deg) rotateY(-5deg);
+    box-shadow:
+      0 35px 80px rgba(0, 0, 0, 0.7),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+  }
+}
+
+/* ===============================
+   Floating Bubbles
+================================ */
+.bubbles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.bubble {
+  position: absolute;
+  bottom: -120px;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  filter: blur(0.5px);
+  animation: bubbleFloat 18s infinite ease-in;
+}
+
+.bubble:nth-child(1) { left: 10%; }
+.bubble:nth-child(2) {
+  left: 30%;
+  width: 16px;
+  height: 16px;
+  animation-duration: 22s;
+}
+.bubble:nth-child(3) {
+  left: 60%;
+  width: 24px;
+  height: 24px;
+  animation-duration: 20s;
+}
+.bubble:nth-child(4) {
+  left: 80%;
+  width: 14px;
+  height: 14px;
+  animation-duration: 26s;
+}
+
+@keyframes bubbleFloat {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-140%);
+    opacity: 0;
+  }
+}
+
+/* Keep content above bubbles */
+.linktree-card > *:not(.bubbles) {
+  position: relative;
+  z-index: 1;
 }
 
 /* Profile */
@@ -38,6 +127,7 @@
 .profile-img {
   border-radius: 50%;
   margin-bottom: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
 }
 
 .profile-name {
@@ -71,17 +161,15 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
   transition: transform 0.12s ease, background 0.12s ease;
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Desktop hover */
 .link-btn:hover {
   background: rgba(255, 255, 255, 0.08);
 }
 
-/* Mobile tap (REAL Linktree feel) */
 .link-btn:active {
   transform: scale(0.96);
   background: rgba(255, 255, 255, 0.15);
@@ -92,11 +180,11 @@
   font-size: 18px;
 }
 
-/* Footer (Bottom info like Linktree) */
+/* Footer */
 .footer {
   margin-top: 32px;
   font-size: 12px;
-  color: #9aa6b2;
+  color: #9e9ab2;
   opacity: 0.8;
   text-align: center;
 }
@@ -107,7 +195,7 @@
   letter-spacing: 0.5px;
 }
 
-/* 🔥 Mobile-first tuning (VERY IMPORTANT) */
+/* Mobile-first tuning */
 @media (max-width: 480px) {
   .linktree-container {
     padding: 20px 12px;
@@ -134,5 +222,8 @@
   .link-btn {
     padding: 13px;
     font-size: 15px;
+    
+
+    
   }
 }
