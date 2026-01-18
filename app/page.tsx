@@ -6,7 +6,7 @@ import { QRCodeCanvas } from 'qrcode.react'
 
 export default function Page() {
   const links = [
-    { name: 'Website', url: 'https://anas-portfolio-blond-omega.vercel.app/' },
+    { name: 'Website', url: 'https://anas-siddiqui-website.netlify.app/' },
     { name: 'Instagram', url: 'https://instagram.com/Anassiddiqui778', icon: <FaInstagram /> },
     { name: 'WhatsApp', url: 'https://wa.me/918299734739', icon: <FaWhatsapp /> },
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/anas-siddiqui-a36932266/', icon: <FaLinkedin /> },
@@ -73,19 +73,26 @@ export default function Page() {
           position: 'fixed',
           bottom: '10px',
           right: '10px',
-          background: 'rgba(255, 255, 255, 0.74)',
+          background: '#ffffff', // solid white for scanning
           padding: '10px',
           borderRadius: '12px',
           boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
-          zIndex: 1000
+          zIndex: 1000,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center'
         }}
       >
-        <p style={{ fontSize: '11px', textAlign: 'center', color: '#000' }}>
+        <p style={{ fontSize: '11px', textAlign: 'center', color: '#000', marginBottom: '5px' }}>
           Scan Me
         </p>
         <QRCodeCanvas
-          value="http://localhost:3000" // change AFTER Vercel deploy
-          size={55}
+          value="https://my-linktreeee.netlify.app/" // live deployed URL
+          size={150} // bigger for easier scanning
+          bgColor="#ffffff"
+          fgColor="#000000"
+          level="H"
+          includeMargin={true}
         />
       </div>
 

@@ -7,10 +7,10 @@ export default function QRCodeWidget() {
       <p className="text-xs text-center mb-1 text-black">Scan Me</p>
       <QRCodeCanvas
         value="https://your-vercel-link.vercel.app"
-        size={90}
+        size={20}
         bgColor="#ffffff55"
-        fgColor="#000000"
-      />
+        fgColor="#000000" 
+      />s
     </div>
   )
 }
