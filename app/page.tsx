@@ -29,7 +29,7 @@ export default function Page() {
           {/* Profile */}
           <div className="profile">
             <Image
-              src="/profile.jpg"
+              src="/Profile.jpg"
               alt="Anas Siddiqui"
               width={130}
               height={130}
