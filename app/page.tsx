@@ -38,7 +38,7 @@ export default function Page() {
             />
             <h1 className="profile-name">Anas Siddiqui</h1>
             <p className="profile-title">
-              Backend Developer | Java • Node.js
+              Backend Developer | Java • Python
             </p>
           </div>
 
