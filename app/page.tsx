@@ -2,7 +2,6 @@
 
 import Image from 'next/image'
 import { FaInstagram, FaLinkedin, FaWhatsapp, FaGithub } from 'react-icons/fa'
-import { QRCodeCanvas } from 'qrcode.react'
 
 export default function Page() {
   const links = [
@@ -30,7 +29,7 @@ export default function Page() {
           <div className="profile">
             <div className="profile-img-container" style={{ display: 'flex', justifyContent: 'center' }}>
               <Image
-                src="/Profile.jpg" // Fixed: Matches your exact filename in the 'public' folder
+                src="/Profile.jpg" 
                 alt="Anas Siddiqui"
                 width={130}
                 height={130}
@@ -68,37 +67,6 @@ export default function Page() {
 
         </div>
       </section>
-
-      {/* QR Code - Bottom Right */}
-      <div
-        className="qr-container"
-        style={{
-          position: 'fixed',
-          bottom: '20px',
-          right: '20px',
-          background: '#ffffff',
-          padding: '12px',
-          borderRadius: '16px',
-          boxShadow: '0 8px 30px rgba(0,0,0,0.3)',
-          zIndex: 1000,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center'
-        }}
-      >
-        <p style={{ fontSize: '12px', fontWeight: 'bold', color: '#333', marginBottom: '8px' }}>
-          Scan Me
-        </p>
-        <QRCodeCanvas
-          value="https://my-website-ochre-six-66.vercel.app" // Updated to your actual Vercel URL
-          size={120}
-          bgColor="#ffffff"
-          fgColor="#000000"
-          level="H"
-          includeMargin={false}
-        />
-      </div>
-
     </main>
   )
 }
