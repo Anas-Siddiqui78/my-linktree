@@ -26,23 +26,25 @@ export default function Page() {
             <span className="bubble"></span>
           </div>
 
-          {/* Profile */}
+          {/* Profile Section */}
           <div className="profile">
-            <Image
-              src="/Profile.jpg"
-              alt="Anas Siddiqui"
-              width={130}
-              height={130}
-              priority
-              className="profile-img"
-            />
+            <div className="profile-img-container" style={{ display: 'flex', justifyContent: 'center' }}>
+              <Image
+                src="/Profile.jpg" // Fixed: Matches your exact filename in the 'public' folder
+                alt="Anas Siddiqui"
+                width={130}
+                height={130}
+                priority
+                className="profile-img"
+              />
+            </div>
             <h1 className="profile-name">Anas Siddiqui</h1>
             <p className="profile-title">
               Backend Developer | Java • Python
             </p>
           </div>
 
-          {/* Links */}
+          {/* Links Section */}
           <div className="links">
             {links.map((link) => (
               <a
@@ -58,7 +60,7 @@ export default function Page() {
             ))}
           </div>
 
-          {/* Footer */}
+          {/* Footer Section */}
           <div className="footer">
             <p>Cookie Preferences • Privacy • Report</p>
             <p className="brand">AnasLinks</p>
@@ -69,30 +71,31 @@ export default function Page() {
 
       {/* QR Code - Bottom Right */}
       <div
+        className="qr-container"
         style={{
           position: 'fixed',
-          bottom: '10px',
-          right: '10px',
-          background: '#ffffff', // solid white for scanning
-          padding: '10px',
-          borderRadius: '12px',
-          boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
+          bottom: '20px',
+          right: '20px',
+          background: '#ffffff',
+          padding: '12px',
+          borderRadius: '16px',
+          boxShadow: '0 8px 30px rgba(0,0,0,0.3)',
           zIndex: 1000,
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center'
         }}
       >
-        <p style={{ fontSize: '11px', textAlign: 'center', color: '#000', marginBottom: '5px' }}>
+        <p style={{ fontSize: '12px', fontWeight: 'bold', color: '#333', marginBottom: '8px' }}>
           Scan Me
         </p>
         <QRCodeCanvas
-          value="https://my-linktreeee.netlify.app/" // live deployed URL
-          size={150} // bigger for easier scanning
+          value="https://my-website-ochre-six-66.vercel.app" // Updated to your actual Vercel URL
+          size={120}
           bgColor="#ffffff"
           fgColor="#000000"
           level="H"
-          includeMargin={true}
+          includeMargin={false}
         />
       </div>
 
